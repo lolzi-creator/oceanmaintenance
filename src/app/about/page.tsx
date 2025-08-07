@@ -33,7 +33,7 @@ export default function AboutPage() {
             </h1>
             
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Seit über 15 Jahren Ihr Partner für Qualität und Zuverlässigkeit in Bern
+              Seit über 21 Jahren Ihr Partner für Qualität und Zuverlässigkeit in Bern
             </p>
           </motion.div>
         </div>

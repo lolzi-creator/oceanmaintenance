@@ -229,7 +229,7 @@ export default function ServicesPreview() {
           <div className="inline-flex items-center gap-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
             <div className="text-4xl">🔧</div>
             <div>
-              <h4 className="text-xl font-bold text-white mb-1">15+ Jahre Erfahrung</h4>
+              <h4 className="text-xl font-bold text-white mb-1">21 Jahr Erfahrung</h4>
               <p className="text-gray-300">Ihr vertrauensvoller Partner für alle Fahrzeugservices</p>
             </div>
           </div>

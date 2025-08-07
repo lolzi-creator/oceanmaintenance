@@ -79,8 +79,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-purple-400" size={16} />
-                <a href="mailto:info@ocean-maintenance.ch" className="text-gray-400 hover:text-white transition-colors">
-                  info@ocean-maintenance.ch
+                <a href="mailto:info@oceancar.ch" className="text-gray-400 hover:text-white transition-colors">
+                  info@oceancar.ch
                 </a>
               </div>
             </div>

@@ -59,21 +59,23 @@ export default function Header() {
         transition={{ duration: 0.5 }}
       >
         <div className="container mx-auto flex justify-between items-center text-sm">
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2">
+          {/* Left side - Contact info (mobile optimized) */}
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex items-center gap-1 md:gap-2">
               <FaPhone className="text-blue-400" size={12} />
-              <span>031 332 60 30</span>
+              <span className="text-xs md:text-sm">031 332 60 30</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2">
               <FaMapMarkerAlt className="text-green-400" size={12} />
-              <span>Bern</span>
+              <span className="text-xs md:text-sm">Bern</span>
             </div>
           </div>
           
-          <div className="flex items-center gap-2 ml-auto">
+          {/* Right side - Hours and emergency service */}
+          <div className="flex items-center gap-2">
             <span className="hidden sm:block text-xs text-gray-300">Mo-Fr: 07:00-18:00</span>
             <motion.div 
-              className="px-2 py-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-xs font-bold"
+              className="px-2 py-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-xs font-bold whitespace-nowrap"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >

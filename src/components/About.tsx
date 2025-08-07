@@ -5,7 +5,7 @@ import { FaUsers, FaAward, FaClock, FaWrench, FaMapMarkerAlt, FaPhone, FaStar } 
 
 export default function About() {
   const stats = [
-    { icon: FaClock, value: "15+", label: "Jahre Erfahrung" },
+    { icon: FaClock, value: "21", label: "Jahr Erfahrung" },
     { icon: FaUsers, value: "1000+", label: "Zufriedene Kunden" },
     { icon: FaWrench, value: "5000+", label: "Reparaturen" },
     { icon: FaAward, value: "100%", label: "Qualität" }
@@ -15,7 +15,7 @@ export default function About() {
     {
       icon: FaWrench,
       title: "Expertise",
-      description: "Über 15 Jahre Erfahrung in der Fahrzeugwartung und -reparatur"
+      description: "Über 21 Jahr Erfahrung in der Fahrzeugwartung und -reparatur"
     },
     {
       icon: FaUsers,
@@ -43,7 +43,7 @@ export default function About() {
           >
             <div>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                Seit über 15 Jahren sind wir Ihr kompetenter Partner für alle Belange rund um Ihr Fahrzeug. 
+                Seit über 21 Jahren sind wir Ihr kompetenter Partner für alle Belange rund um Ihr Fahrzeug. 
                 Unser erfahrenes Team aus qualifizierten Mechanikern steht für Qualität, Zuverlässigkeit und fairen Service.
               </p>
               

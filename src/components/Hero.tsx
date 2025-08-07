@@ -152,7 +152,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 1.2 }}
               >
                 Vertrauen Sie auf über 
-                <span className="text-cyan-400 font-semibold"> 15 Jahre Erfahrung</span> in der 
+                <span className="text-cyan-400 font-semibold"> 21 Jahr Erfahrung</span> in der 
                 Fahrzeugwartung und -reparatur. Unser professionelles Team sorgt dafür, 
                 dass Ihr Auto sicher und zuverlässig bleibt.
               </motion.p>

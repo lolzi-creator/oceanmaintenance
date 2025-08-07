@@ -92,8 +92,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-lg mb-1">E-Mail</h3>
-                    <a href="mailto:info@ocean-maintenance.ch" className="text-purple-300 hover:text-purple-200 transition-colors">
-                      info@ocean-maintenance.ch
+                                  <a href="mailto:info@oceancar.ch" className="text-purple-300 hover:text-purple-200 transition-colors">
+                info@oceancar.ch
                     </a>
                   </div>
                 </div>
