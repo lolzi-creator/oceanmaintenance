@@ -126,8 +126,8 @@ export default function WebsitesCarousel() {
               {/* Main Card */}
               <div className={`relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/20 shadow-2xl transition-all duration-500 group-hover:border-white/40`}>
                 
-                {/* Enhanced Background Image */}
-                <div className="relative h-48 lg:h-56 overflow-hidden">
+                                 {/* Enhanced Background Image - Mobile Compact */}
+                 <div className="relative h-32 md:h-40 lg:h-48 xl:h-56 overflow-hidden">
                   <motion.img 
                     src={website.image} 
                     alt={website.name}
@@ -137,78 +137,80 @@ export default function WebsitesCarousel() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                   
-                  {/* Enhanced Status Badge */}
-                  <motion.div 
-                    className={`absolute top-4 right-4 px-3 py-2 rounded-full text-sm font-bold backdrop-blur-sm ${
-                      website.status === 'Aktuell' 
-                        ? 'bg-green-500/90 text-white shadow-green-500/50' 
-                        : 'bg-yellow-500/90 text-black shadow-yellow-500/50'
-                    } shadow-lg`}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
-                  >
-                    {website.status}
-                  </motion.div>
+                                     {/* Enhanced Status Badge - Mobile Compact */}
+                   <motion.div 
+                     className={`absolute top-2 right-2 md:top-3 md:right-3 lg:top-4 lg:right-4 px-2 py-1 md:px-3 md:py-2 rounded-full text-xs md:text-sm font-bold backdrop-blur-sm ${
+                       website.status === 'Aktuell' 
+                         ? 'bg-green-500/90 text-white shadow-green-500/50' 
+                         : 'bg-yellow-500/90 text-black shadow-yellow-500/50'
+                     } shadow-lg`}
+                     initial={{ scale: 0 }}
+                     animate={{ scale: 1 }}
+                     transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
+                   >
+                     {website.status}
+                   </motion.div>
 
-                  {/* Floating Icon */}
-                  <motion.div 
-                    className={`absolute top-4 left-4 w-12 h-12 bg-gradient-to-br ${website.color} rounded-2xl flex items-center justify-center shadow-2xl`}
-                    initial={{ scale: 0, rotate: -180 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 + index * 0.2 }}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                  >
-                    <website.icon className="text-white" size={24} />
-                  </motion.div>
+                                     {/* Floating Icon - Mobile Compact */}
+                   <motion.div 
+                     className={`absolute top-2 left-2 md:top-3 md:left-3 lg:top-4 lg:left-4 w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-gradient-to-br ${website.color} rounded-xl md:rounded-xl lg:rounded-2xl flex items-center justify-center shadow-2xl`}
+                     initial={{ scale: 0, rotate: -180 }}
+                     animate={{ scale: 1, rotate: 0 }}
+                     transition={{ duration: 0.8, delay: 0.8 + index * 0.2 }}
+                     whileHover={{ rotate: 360, scale: 1.1 }}
+                   >
+                     <website.icon className="text-white" size={16} />
+                   </motion.div>
                 </div>
 
-                {/* Enhanced Content */}
-                <div className="p-6 lg:p-8">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.0 + index * 0.2 }}
-                  >
-                    <h3 className="text-2xl lg:text-3xl font-black text-white mb-2">
-                      {website.name}
-                    </h3>
-                    <p className="text-base text-cyan-300 font-semibold mb-4">
-                      {website.subtitle}
-                    </p>
-                    
-                    <p className="text-gray-300 mb-6 leading-relaxed text-lg">
-                      {website.description}
-                    </p>
+                                 {/* Enhanced Content - Mobile Compact */}
+                 <div className="p-3 md:p-4 lg:p-6 xl:p-8">
+                   <motion.div
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.6, delay: 1.0 + index * 0.2 }}
+                   >
+                     <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-black text-white mb-1 md:mb-2">
+                       {website.name}
+                     </h3>
+                     <p className="text-sm md:text-base text-cyan-300 font-semibold mb-2 md:mb-3 lg:mb-4">
+                       {website.subtitle}
+                     </p>
+                     
+                     <p className="text-gray-300 mb-3 md:mb-4 lg:mb-6 leading-relaxed text-sm md:text-base lg:text-lg">
+                       {website.description}
+                     </p>
 
-                    {/* Enhanced Link Button */}
-                    {website.status === 'Aktuell' ? (
-                      <Link href={website.link}>
-                        <motion.div
-                          className={`inline-flex items-center gap-3 bg-gradient-to-r ${website.color} text-white px-6 py-3 rounded-xl font-bold text-lg shadow-xl group-hover:shadow-2xl transition-all duration-300`}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Jetzt besuchen
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
-                          >
-                            →
-                          </motion.div>
-                        </motion.div>
-                      </Link>
-                    ) : (
-                      <motion.div 
-                        className="inline-flex items-center gap-3 bg-gradient-to-r from-gray-600 to-gray-700 text-gray-300 px-6 py-3 rounded-xl font-bold text-lg cursor-not-allowed opacity-75"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.75 }}
-                        transition={{ duration: 0.6, delay: 1.2 + index * 0.2 }}
-                      >
-                        Bald verfügbar
-                        <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-                      </motion.div>
-                    )}
+                                         {/* Enhanced Link Button - Mobile Compact */}
+                     {website.status === 'Aktuell' ? (
+                       <Link href={website.link}>
+                         <motion.div
+                           className={`inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r ${website.color} text-white px-3 py-2 md:px-4 md:py-3 lg:px-6 lg:py-3 rounded-lg md:rounded-xl font-bold text-sm md:text-base lg:text-lg shadow-xl group-hover:shadow-2xl transition-all duration-300`}
+                           whileHover={{ scale: 1.05 }}
+                           whileTap={{ scale: 0.95 }}
+                         >
+                           <span className="hidden sm:inline">Jetzt besuchen</span>
+                           <span className="sm:hidden">Besuchen</span>
+                           <motion.div
+                             animate={{ x: [0, 5, 0] }}
+                             transition={{ duration: 1.5, repeat: Infinity }}
+                           >
+                             →
+                           </motion.div>
+                         </motion.div>
+                       </Link>
+                     ) : (
+                       <motion.div 
+                         className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-gray-600 to-gray-700 text-gray-300 px-3 py-2 md:px-4 md:py-3 lg:px-6 lg:py-3 rounded-lg md:rounded-xl font-bold text-sm md:text-base lg:text-lg cursor-not-allowed opacity-75"
+                         initial={{ opacity: 0 }}
+                         animate={{ opacity: 0.75 }}
+                         transition={{ duration: 0.6, delay: 1.2 + index * 0.2 }}
+                       >
+                         <span className="hidden sm:inline">Bald verfügbar</span>
+                         <span className="sm:hidden">Bald da</span>
+                         <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                       </motion.div>
+                     )}
                   </motion.div>
                 </div>
               </div>

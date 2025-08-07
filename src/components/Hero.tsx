@@ -32,7 +32,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-black">
+    <section className="relative min-h-screen h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-black">
       {/* Dynamic Background with Parallax */}
       <div className="absolute inset-0">
         {/* Main Background Image - Professional Car Service */}
@@ -79,26 +79,26 @@ export default function Hero() {
 
       {/* Main Content Container */}
       <div className="relative z-10 h-full flex flex-col">
-        {/* Top spacer for header - increased for mobile to prevent title overlap */}
-        <div className="h-40 md:h-32"></div>
+        {/* Top spacer for header - Optimized for mobile without badge */}
+        <div className="h-32 sm:h-36 md:h-32"></div>
         
-        {/* Main content area */}
-        <div className="flex-1 container mx-auto px-4 flex items-center">
-          <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center w-full">
+        {/* Main content area - Mobile optimized */}
+        <div className="flex-1 container mx-auto px-4 flex items-center min-h-0">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-start lg:items-center w-full">
             
             {/* Left Side - Main Content */}
             <motion.div 
-              className="space-y-6 md:space-y-8"
+              className="space-y-4 md:space-y-6 lg:space-y-8"
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              {/* Animated Badge */}
+              {/* Animated Badge - Hidden on mobile */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
+                className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
               >
                 <motion.div 
                   className="w-2 h-2 bg-green-400 rounded-full"
@@ -111,7 +111,7 @@ export default function Hero() {
               {/* Main Heading with Staggered Animation - Mobile Optimized */}
               <div className="space-y-2 md:space-y-4">
                 <motion.h1 
-                  className="text-3xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none"
+                  className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -135,7 +135,7 @@ export default function Hero() {
                 </motion.h1>
                 
                 <motion.p 
-                  className="text-base md:text-xl lg:text-2xl text-green-200 font-light"
+                  className="text-sm sm:text-base md:text-xl lg:text-2xl text-green-200 font-light"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 1 }}
@@ -144,9 +144,9 @@ export default function Hero() {
                 </motion.p>
               </div>
 
-              {/* Description - Mobile Optimized */}
+              {/* Description - iPhone SE Optimized */}
               <motion.p 
-                className="text-sm md:text-lg text-gray-300 max-w-lg leading-relaxed"
+                className="text-xs sm:text-sm md:text-lg text-gray-300 max-w-lg leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
@@ -195,9 +195,9 @@ export default function Hero() {
                 </motion.a>
               </motion.div>
 
-              {/* Service Quick Cards - More Compact on Mobile */}
+              {/* Service Quick Cards - Mobile Optimized */}
               <motion.div
-                className="flex flex-wrap gap-2 md:gap-3 pt-2 md:pt-4"
+                className="flex flex-wrap gap-1 md:gap-2 lg:gap-3 pt-1 md:pt-2 lg:pt-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.6 }}
@@ -205,14 +205,13 @@ export default function Hero() {
                 {maintenanceServices.map((service, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center gap-1 md:gap-2 bg-white/5 backdrop-blur-sm px-2 md:px-4 py-1 md:py-2 rounded-lg md:rounded-xl border border-white/10 hover:border-green-400/30 transition-all"
+                    className="flex items-center gap-1 bg-white/10 backdrop-blur-sm px-2 md:px-3 py-1 rounded-md md:rounded-lg border border-white/20 text-center"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 1.8 + index * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
                   >
-                    <service.icon className={`w-3 h-3 md:w-4 md:h-4 text-green-400`} />
-                    <span className="text-xs md:text-sm text-gray-300 font-medium">{service.text}</span>
+                    <service.icon className={`w-3 h-3 md:w-4 md:h-4 text-green-400 flex-shrink-0`} />
+                    <span className="text-xs md:text-sm text-white font-medium whitespace-nowrap">{service.text}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -220,68 +219,68 @@ export default function Hero() {
 
             {/* Right Side - Contact Cards & Stats - Mobile Optimized */}
             <motion.div 
-              className="space-y-3 md:space-y-6"
+              className="space-y-2 md:space-y-4 lg:space-y-6 mt-4 lg:mt-0"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
             >
               
-              {/* Emergency Contact Card */}
+              {/* Emergency Contact Card - Compact Mobile */}
               <motion.div
-                className="bg-gradient-to-br from-red-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl md:rounded-3xl p-3 md:p-6 border border-red-500/30"
+                className="bg-gradient-to-br from-red-500/20 to-orange-500/20 backdrop-blur-sm rounded-lg md:rounded-xl lg:rounded-3xl p-2 md:p-4 lg:p-6 border border-red-500/30"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.8 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                <div className="flex items-center gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg md:rounded-2xl flex items-center justify-center">
-                    <FaPhone className="text-white text-base md:text-2xl" />
+                <div className="flex items-center gap-2 md:gap-3 lg:gap-4">
+                  <div className="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <FaPhone className="text-white text-sm md:text-lg lg:text-2xl" />
                   </div>
-                  <div>
-                    <h3 className="text-white font-bold text-sm md:text-lg">24h Notdienst</h3>
-                    <p className="text-orange-200 text-xs md:text-base">Immer für Sie da</p>
-                    <a href="tel:0313326030" className="text-orange-300 font-bold text-base md:text-xl">031 332 60 30</a>
+                  <div className="min-w-0">
+                    <h3 className="text-white font-bold text-xs md:text-sm lg:text-lg">24h Notdienst</h3>
+                    <p className="text-orange-200 text-xs md:text-sm">Immer für Sie da</p>
+                    <a href="tel:0313326030" className="text-orange-300 font-bold text-sm md:text-base lg:text-xl">031 332 60 30</a>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Location Card */}
+              {/* Location Card - Compact Mobile */}
               <motion.div
-                className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-sm rounded-xl md:rounded-3xl p-3 md:p-6 border border-blue-500/30"
+                className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-sm rounded-lg md:rounded-xl lg:rounded-3xl p-2 md:p-4 lg:p-6 border border-blue-500/30"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 2 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                <div className="flex items-center gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg md:rounded-2xl flex items-center justify-center">
-                    <FaMapMarkerAlt className="text-white text-base md:text-2xl" />
+                <div className="flex items-center gap-2 md:gap-3 lg:gap-4">
+                  <div className="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <FaMapMarkerAlt className="text-white text-sm md:text-lg lg:text-2xl" />
                   </div>
-                  <div>
-                    <h3 className="text-white font-bold text-sm md:text-lg">Unser Standort</h3>
-                    <p className="text-blue-200 text-xs md:text-base">Zikadenweg 42a</p>
-                    <p className="text-blue-300 font-bold text-xs md:text-base">3006 Bern</p>
+                  <div className="min-w-0">
+                    <h3 className="text-white font-bold text-xs md:text-sm lg:text-lg">Unser Standort</h3>
+                    <p className="text-blue-200 text-xs md:text-sm">Zikadenweg 42a</p>
+                    <p className="text-blue-300 font-bold text-xs md:text-sm">3006 Bern</p>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Opening Hours Card */}
+              {/* Opening Hours Card - Hidden on Mobile */}
               <motion.div
-                className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 backdrop-blur-sm rounded-xl md:rounded-3xl p-3 md:p-6 border border-green-500/30"
+                className="hidden md:block bg-gradient-to-br from-green-500/20 to-emerald-500/20 backdrop-blur-sm rounded-xl lg:rounded-3xl p-4 lg:p-6 border border-green-500/30"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 2.2 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                <div className="flex items-center gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg md:rounded-2xl flex items-center justify-center">
-                    <FaClock className="text-white text-base md:text-2xl" />
+                <div className="flex items-center gap-3 lg:gap-4">
+                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl lg:rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <FaClock className="text-white text-lg lg:text-2xl" />
                   </div>
-                  <div>
-                    <h3 className="text-white font-bold text-sm md:text-lg">Öffnungszeiten</h3>
-                    <p className="text-green-200 text-xs md:text-base">Mo-Fr: 07:00-18:00</p>
-                    <p className="text-green-300 font-bold text-xs md:text-base">Sa: 08:00-16:00</p>
+                  <div className="min-w-0">
+                    <h3 className="text-white font-bold text-sm lg:text-lg">Öffnungszeiten</h3>
+                    <p className="text-green-200 text-sm">Mo-Fr: 07:00-18:00</p>
+                    <p className="text-green-300 font-bold text-sm">Sa: 08:00-16:00</p>
                   </div>
                 </div>
               </motion.div>

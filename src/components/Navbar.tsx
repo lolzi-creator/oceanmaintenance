@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { 
-  FaWrench, 
   FaBars, 
   FaTimes,
   FaPhone,
@@ -99,29 +99,30 @@ export default function Header() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             
-            {/* Logo Section */}
-            <Link href="/" className="flex items-center gap-4">
+            {/* Logo Section - Mobile Optimized */}
+            <Link href="/" className="flex items-center gap-2 md:gap-4">
               <motion.div 
-                className="flex items-center gap-4 cursor-pointer"
+                className="flex items-center gap-2 md:gap-4 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative">
                   <motion.div 
-                    className="w-12 h-12 bg-gradient-to-br from-blue-500 via-cyan-400 to-green-500 rounded-xl flex items-center justify-center shadow-xl"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.8 }}
+                    className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <FaWrench className="text-white" size={24} />
+                    <Image 
+                      src="/logoOC.png" 
+                      alt="Ocean Maintenance Logo" 
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-contain"
+                    />
                   </motion.div>
-                  <motion.div 
-                    className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  />
                 </div>
-                <div>
-                  <h1 className="text-2xl font-black text-white tracking-tight">
+                <div className="hidden sm:block">
+                  <h1 className="text-lg md:text-2xl font-black text-white tracking-tight">
                     <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                       OCEAN
                     </span>
@@ -188,10 +189,10 @@ export default function Header() {
               </motion.a>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Simplified */}
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/20"
+              className="lg:hidden w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -207,7 +208,7 @@ export default function Header() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <FaTimes className="text-white" size={20} />
+                    <FaTimes className="text-white" size={18} />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -217,7 +218,7 @@ export default function Header() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <FaBars className="text-white" size={20} />
+                    <FaBars className="text-white" size={18} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -236,6 +237,19 @@ export default function Header() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
+            {/* Close Button */}
+            <motion.button
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaTimes className="text-white" size={20} />
+            </motion.button>
+
             <motion.div
               className="flex flex-col items-center justify-center h-full space-y-8"
               initial={{ y: 50, opacity: 0 }}
